@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../favicon.ico">
+
+        <title>Physics</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/github.css">
+        <script src="../js/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <!-- Custom styles for this template -->
+        <link href="marti-panels.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+            <a class="navbar-brand" href="index.html">Marti Gimeno Orti </a>
+            <ul class="nav navbar-nav">
+                <li class="dropdown nav-item">
+                    <a id="drop1" href="#" role="button" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Projects
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="cg.html">Graphics</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="coding.html">Code</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="physics.html">Physics</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About me</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text">Schulze election method <span class="label label-success">Completed</span></h1>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
+                    <br>
+                    <p>
+                        The Schulze election method was created by Mark Schulze in 1997 and it was originally design to choose a unique winner from a set of preferential votes. Non the less, this method also gives information about the gradiation of the different options of the same votation.
+                    </p>
+                    <p>
+                        The Schulze method is used now a days by popular entities like <em>Debian</em>, <em>Ubuntu</em>, <em>Wikipedia</em> and <em>Gentoo</em>, in order to do internal elections.
+                        <br>
+                        In what follows we learn the algorithm to calculate the Schulze election method:
+                    </p>
+                    <br>
+                    <div class="card-well">
+                        <iframe src="https://nbviewer.jupyter.org/github/itsmgo/tca/blob/master/MetodeSchulze.ipynb" width="100%" height="600px" frameborder=0>Not supported in your browser</iframe>
+                    </div>
+                    <hr>
+                    For more information, check the full article in Catalan:
+                    <a href="../data/metodeSchulzeDoc.pdf">Mètode de Schulze</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text">Lorenz system <span class="label label-success">Completed</span></h1>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
+                    <br>
+                    <p>
+                        In 1963, Edward Lorenz introduced the concept <em>Lorenz system</em> to describe a particular dynamic system that behaves chaotically. The differential equations that describe the movement have three parameters <em>a</em>, <em>b</em> and <em>c</em>. Usually <em>a = 10</em>, <em>c = 8/3</em> and <em>b</em> changes to give variation to the movement. A tiny variation in the parameters changes enormously the trajectory of the movement.
+                    </p>
+                    <p>
+                        Here I'm using C programming to collect the trajectory data and Jupyter notebook to plot the results:
+                    </p>
+                    <br>
+                    <div class="card-well">
+                        <pre class="llarg">
+                        <code class="c llarg">using namespace std;
+
+int main()
+{
+    int tmax = 10000;
+    double h = 0.005;
+
+    double sigma = 5;
+    double b = 8./3.;
+    double r = 28;
+
+    double x0 = 5;
+    double y0 = 3;
+    double z0 = 2;
+
+    float v[3][tmax];
+    float u[3][tmax];
+
+    v[0][0] = x0;
+    v[1][0] = y0;
+    v[2][0] = z0;
+
+    ofstream arxiu;
+    arxiu.open ("dades.txt");
+
+    for (int j = 0; j < tmax; j++){
+        arxiu << "t" << "20" << "  ";
+        for (int i = 0; i < 3; i++){
+            switch (i){
+
+                case 0:
+                    u[i][j] = sigma*(v[1][j]-v[0][j]);
+                    break;
+
+                case 1:
+                    u[i][j] = v[0][j]*(r-v[2][j])-v[1][j];
+                    break;
+
+                case 2:
+                    u[i][j] = v[0][j]*v[1][j]-b*v[2][j];
+                    break;
+            }
+            v[i][j+1] = v[i][j] + h*u[i][j];
+            arxiu << v[i][j] << "  ";
+        }
+        arxiu << endl;
+    }
+    arxiu.close();
+    return 0;
+}</code>
+                        </pre>
+                    </div>
+                    <hr>
+                    <div class="card-well">
+                        <iframe src="http://nbviewer.jupyter.org/github/itsmgo/daily-practices/blob/master/Notebooks/Atractorlorenz.ipynb" width="100%" height="600px" frameborder=0>Not supported in your browser</iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

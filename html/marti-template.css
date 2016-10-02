@@ -1,0 +1,21 @@
+.marti {
+  padding: 1rem 1rem;
+  text-align: center;
+}
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.featurette-divider{
+    text-align: left;
+}
+
+.enums{
+    margin-left: 2rem;
+}
