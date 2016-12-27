@@ -4,6 +4,11 @@
 <title>Postal Nadalenca</title> <!-- Include CSS file here -->
 <link rel="stylesheet" type="text/css" href="magnifier.css">
 </head>
+<script>
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+        location.href = "/mobil.html";
+    }
+</script>
 <body>
     <div id="main">
         <h1>Bon Nadal i feliç 2017!</h1>
@@ -24,7 +29,7 @@
         thumb: '#thumb',
         large: "../imatges/nadal.png",
         mode: 'inside',
-        zoom: 3,
+        zoom: 1.6,
         zoomable: true
     });
 </script>
