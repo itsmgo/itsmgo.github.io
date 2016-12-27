@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Postal Nadalenca</title> <!-- Include CSS file here -->
+<link rel="stylesheet" type="text/css" href="magnifier.css">
+</head>
+<body>
+    <div id="main">
+        <h1>Bon Nadal i feliç 2017!</h1>
+        <hr>
+        <br>
+        <br>
+        <div class="centre">
+            <img id="thumb" src="../imatges/nadalthumb.png">
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="Event.js"></script>
+<script type="text/javascript" src="Magnifier.js"></script>
+<script type="text/javascript">
+    var evt = new Event(),
+    m = new Magnifier(evt);
+    m.attach({
+        thumb: '#thumb',
+        large: "../imatges/nadal.png",
+        mode: 'inside',
+        zoom: 3,
+        zoomable: true
+    });
+</script>
+</html>
