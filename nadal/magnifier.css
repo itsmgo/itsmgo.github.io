@@ -75,3 +75,13 @@ div#main{
 .hidden {
     display: none
 }
+.marti-base {
+    box-shadow: 0px 0px 5px rgba(0,0,0,.6);
+    padding: 0.4rem;
+    padding-bottom: 1rem;
+    background-color: #468;
+    border-radius: 5px;
+    border-color: #111;
+    color: azure;
+    text-align: left;
+}
