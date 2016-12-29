@@ -116,8 +116,8 @@ $(".clicable").on("click", function(e){
     
     e.preventDefault();
     $("button").remove(".marti-base");
-    var x = e.pageX + 'px';
-    var y = e.pageY + 'px';
+    var x = e.pageX-100 + 'px';
+    var y = e.pageY-30 + 'px';
     var nom = $('<button class="marti-base" id="i"> <b>Nom</b>:  '+$(this).attr("title")+'<br><b>Aficions</b>: '+$(this).attr("alt")+'</button>');
     var div = $('<div>').css({
         "position": "absolute",                    

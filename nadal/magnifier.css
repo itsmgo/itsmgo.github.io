@@ -3,7 +3,7 @@
 div#main{
     font-family:'Ubuntu',sans-serif;
     width: 1200px;
-    margin: auto;
+    margin: 0px;
     
 }
 
@@ -76,11 +76,16 @@ div#main{
     display: none
 }
 .marti-base {
+    font-family:'Ubuntu',sans-serif;
     box-shadow: 0px 0px 10px rgba(0,0,0,.6);
     padding: 1rem;
-    background-color: #246;
+    background-color: #357;
     border-radius: 20px;
     border-color: #111;
     color: white;
     text-align: left;
+}
+
+.centre2 {
+    ima;
 }
