@@ -155,3 +155,7 @@
     height: auto;
     display: block;
 }
+
+.center {
+    align-self: center;
+}

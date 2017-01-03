@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Blog</title>
+      
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../html/marti-blog.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="blog-header">
+      <div class="container">
+        <h1 class="blog-title">La ventafocs</h1>
+        <p class="lead blog-description">Breu història d'una nit màgica.</p>
+      </div> 
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+          <div class="marti-base">
+            <!--<h1 class="blog-post-title">New project: Contibuting to create maps with 3D elements!</h1>
+            <p class="blog-post-meta">October 17, 2016 by <a href="about.html">Martí</a></p>-->
+            <br>
+              Tocaven les 12 quan la noia, amb presses, corria escales avall. No patia pels encanteris, ella era una noia independent i autosuficient, sinó que patia...
+            <br>
+            <hr>
+            <h3> Per què patia? </h3>
+            <hr>
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-primary" id="boto1">
+                <input type="radio" name="options" autocomplete="off"> Per acabar-se el <br> raïm a temps
+              </label>
+              <label class="btn btn-primary" id="boto2" >
+                <input type="radio" name="options" autocomplete="off"> Per ser la primera a felicitar l'any <br> nou al novio pel WhatsApp
+              </label>
+              <label class="btn btn-primary" id="boto3" >
+                <input type="radio" name="options" autocomplete="off"> Per com aniria el 2017, <br> començant per aquella mateixa nit
+              </label>
+            </div>
+          </div><!-- /.blog-post -->
+        <hr>
+          <div class="marti-base" style="display:none;" id="text1">
+            <p>En efecte, la visita al lavabo s'ahia allargat inesperadament i ara es trobava corrents cap al menjador. El raïm sempre havia estat un rival dur i no pensava deixar-se vencer un altre any, després de la humiliant derrota de 2016, on el raïm va aconseguir sortir disparat cap enfora quan només faltaven 2 campanades.</p>
+          </div><!-- /.blog-main -->
+          <div class="marti-base" style="display:none;" id="text2">
+            <p>Ben entrats en l'era de la informació, sempre s'ha d'estar pendent de la tecnologia i la immediatesa de les coses. També ho feia perquè ultimament les coses no anaven gaire bé entre ells dos i un missatge a les 00:00 sempre arregla les coses... o no.</p>
+          </div><!-- /.blog-main -->
+          <div class="marti-base" style="display:none;" id="text3">
+            <p>El 2016 no havia estat del tot fructífer i tenia molts projectes i esperances dipositades en el 2017. Sí, definitivament el 2017 seria l'any que ho canviaria TOT, aquella festa al bosc nomeés seria l'inici.</p>
+          </div><!-- /.blog-main -->
+        </div>
+      </div><!-- /.row -->  
+    </div><!-- /.container -->
+    
+
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        $(document).on('change', '#boto1', function (event) {
+            $('#text1').toggle('slow', function() {
+            // Animation complete.
+          });
+        });
+        $(document).on('change', '#boto3', function (event) {
+            $('#text2').toggle('slow', function() {
+            // Animation complete.
+          });
+        });
+        $(document).on('change', '#boto3', function (event) {
+            $('#text3').toggle('slow', function() {
+            // Animation complete.
+          });
+        });
+    </script>
+  </body>
+</html>
