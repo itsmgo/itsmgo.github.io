@@ -28,47 +28,52 @@
     </div>
     
     <div class="container blog-main">
-      <div class="row">
-        <div class="col-sm-8">
+      <div class="row" style="margin-left=1rem">
+        <div class="col-sm-8 block">
           <div class="marti-base">
             <!--<h1 class="blog-post-title">New project: Contibuting to create maps with 3D elements!</h1>
             <p class="blog-post-meta">October 17, 2016 by <a href="about.html">Martí</a></p>-->
             <br>
-              Tocaven les 12 quan la noia, amb presses, corria escales avall. No patia pels encanteris, ella era una noia independent i autosuficient, sinó que patia...
+            <p  style="text-align:left;">  Hola, et convido a viure una història on podem aprendre coses l'un de l'altre. La única advertencia és que quan prenguis una decisió, no la podràs canviar. L'únic consell que et dono és que flueixis amb l'experiència. </p>
             <br>
             <hr>
-            <h3> Per què patia? </h3>
+            <h3> Quin d'aquests llocs t'agrada més? </h3>
             <hr>
-              <!--
-            <div class="btn-group" data-toggle="buttons">
-              <label class="btn btn-outline-primary" id="boto1">
-                <input type="radio" id="options1" autocomplete="off"> Per acabar-se el <br> raïm a temps
-              </label>
-              <label class="btn btn-outline-primary" id="boto2" >
-                <input type="radio" id="options2" autocomplete="off"> Per ser la primera a felicitar l'any <br> nou al novio pel WhatsApp
-              </label>
-              <label class="btn btn-outline-primary" id="boto3" >
-                <input type="radio" name="options" autocomplete="off"> Per com aniria el 2017, <br> començant per aquella mateixa nit
-              </label>
-            </div>-->
             <div class="block" role="group">
-              <button type="button" class="btn btn-secondary gris block" id="boto1" style="margin-bottom=.2rem;">Per acabar-se el <br> raïm a temps</button> <br>
-              <button type="button" class="btn btn-secondary gris block" id="boto2" style="margin-bottom=.2rem;">Per ser la primera a felicitar l'any <br> nou al novio pel WhatsApp</button> <br>
-              <button type="button" class="btn btn-secondary gris block" id="boto3">Per com aniria el 2017, <br> començant per aquella mateixa nit</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto1">Un poble rural perdut</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto2">Una platja tranquila</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto3">Una ciutat nocturna</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto4">No s'està enlloc com a casa</button> <br>
             </div>
           </div><!-- /.blog-post -->
         <hr>
           <div class="marti-base" style="display:none;" id="text1">
             <br>
-            <p>En efecte, la visita al lavabo s'havia allargat inesperadament i ara es trobava corrents cap al menjador. El raïm sempre havia estat un rival dur i no pensava deixar-se vencer un altre any, després de la humiliant derrota de 2016, on el raïm va aconseguir sortir disparat cap enfora quan només faltaven 2 campanades.</p>
+            <p style="text-align:left;">Decideixes fer una escapada de cap de setmana a un poble del Pirineu, per desconnectar del que portem de 2017 i respirar aire pur. Arribes a la petita casa de pedra que has llogat, que està freda, i encens la llar de foc.</p>
+            <br>  
+            <h3> Què fas mentre s'escalfa la casa? </h3>
+            <hr>
+            <div class="block" role="group">
+              <button type="button" class="btn btn-secondary gris block" id="boto11">Tapar-te amb una manta i llegir</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto12">Relaxar-te mirant com creixen les flames del foc</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto13">Donar un volt pel poble a explorar les 4 cases que hi ha</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto14">Posar-te les botes i fer una primera excursió</button> <br>
+            </div>
           </div><!-- /.blog-main -->
-          <div class="marti-base" style="display:none;" id="text2">
+          <div class="marti-base" style="display:none;" id="text11">
             <br>
-            <p>Ben entrats en l'era de la informació, sempre s'ha d'estar pendent de la tecnologia i la immediatesa de les coses. També ho feia perquè ultimament les coses no anaven gaire bé entre ells dos i un missatge a les 00:00 sempre arregla les coses... o no.</p>
+            <p style="text-align:left;">Tens lectura nova, però també has decidit agafar el teu llibre preferit per rellegir-lo.</p>
+            <br>  
+            <h3> Quin és el teu llibre preferit? </h3>
+            <hr>
+              <div class="block">
+                <input type="text" class="gris" style="width:50%;"> <button type="button" class="btn btn-secondary gris" id="boto111">OK</button>
+              </div>
           </div><!-- /.blog-main -->
           <div class="marti-base" style="display:none;" id="text3">
             <br>
-            <p>El 2016 no havia estat del tot fructífer i tenia molts projectes i esperances dipositades en el 2017. Sí, definitivament el 2017 seria l'any que ho canviaria TOT, aquella festa al bosc nomeés seria l'inici.</p>
+            <p style="text-align:left;">El 2016 no havia estat del tot fructífer i tenia molts projectes i esperances dipositades en el 2017. Sí, definitivament el 2017 seria l'any que ho canviaria TOT, aquella festa al bosc nomeés seria l'inici.</p>
+            
           </div><!-- /.blog-main -->
         </div>
       </div><!-- /.row -->  
@@ -90,6 +95,7 @@
             if($("#boto2").prop("disabled") == false){
                 $('#boto2').prop('disabled', true);
                 $('#boto3').prop('disabled', true);
+                $('#boto4').prop('disabled', true);
                 $('#text1').toggle('slow', function() {
                 // Animation complete.
               });
@@ -100,6 +106,7 @@
             if($("#boto1").prop("disabled") == false){
                 $('#boto1').prop('disabled', true);
                 $('#boto3').prop('disabled', true);
+                $('#boto4').prop('disabled', true);
                 $('#text2').toggle('slow', function() {
                 // Animation complete.
               });
@@ -110,7 +117,29 @@
             if($("#boto3").prop("disabled") == false){
                 $('#boto2').prop('disabled', true);
                 $('#boto1').prop('disabled', true);
+                $('#boto4').prop('disabled', true);
                 $('#text3').toggle('slow', function() {
+                // Animation complete.
+              });
+            }
+        });
+        $(document).on('click', '#boto4', function (event) {
+            event.preventDefault();
+            if($("#boto2").prop("disabled") == false){
+                $('#boto2').prop('disabled', true);
+                $('#boto3').prop('disabled', true);
+                $('#text4').toggle('slow', function() {
+                // Animation complete.
+              });
+            }
+        });
+        $(document).on('click', '#boto11', function (event) {
+            event.preventDefault();
+            if($("#boto12").prop("disabled") == false){
+                $('#boto12').prop('disabled', true);
+                $('#boto13').prop('disabled', true);
+                $('#boto14').prop('disabled', true);
+                $('#text11').toggle('slow', function() {
                 // Animation complete.
               });
             }
