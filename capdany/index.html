@@ -84,12 +84,15 @@
           <div class="marti-base" style="display:none;" id="text4">
             <br>
             <p style="text-align:left;" id="p4"></p>
+            <p>Uns dies més tard, un noi que havia participat també en aquella nit màgica es va posar en contacte amb ella. Era tímid, però creatiu i original i va atrevir-se a escriure-li una història per convidar-la a:</p>
             <br>
-            <h3>Què en penses de tot això?</h3>
+            <h3>A què l'hauria de convidar?</h3>
             <hr>
             <div class="block" role="group">
               <div class="block">
-                <input type="text" class="gris" style="width:50%;" id="inputEnquesta"> <button type="button" class="btn btn-secondary gris" id="boto51">OK</button>
+                  <button type="button" class="btn btn-secondary gris block" id="boto51">A no tornar-se a veure<br>mai més</button> <br>
+                  <button type="button" class="btn btn-secondary gris block" id="boto52">A un cafè/birra</button> <br>
+                  <button type="button" class="btn btn-secondary gris block" id="boto53">A continuar parlant</button> <br>
               </div>
             </div>
           </div><!-- /.blog-main -->
@@ -107,7 +110,7 @@
                 <input type="text" name="Plan Cap d'Any" id="i2" style="display:none;"> 
                 <input type="text" name="Moment Remarcable" id="i3" style="display:none;"> 
                 <input type="text" name="Veredicte" id="i4" style="display:none;"> 
-                <input type="text" name="Enquesta" id="i5" style="display:none;"> 
+                <input type="text" name="Convidar" id="i5" style="display:none;"> 
                 <input type="submit" class="btn btn-secondary gris block" value="Envia" onclick="return confirm('Segura?')"> <br>
             </form>
         </div>
@@ -229,7 +232,7 @@
                 $( '#i4' ).val("RECORDAR");
                 $('#boto41').prop('disabled', true);
                 $('#boto43').prop('disabled', true);
-                var text = "Definitivament la nit de cap d'any està encantada.";
+                var text = "Definitivament la nit de cap d'any té poders sobrenaturals.";
                 $('#p4').text(text);
                 $('#text4').toggle('slow', function() {
                 // Animation complete.
@@ -242,7 +245,7 @@
                 $( '#i4' ).val("NIFUNIFA");
                 $('#boto42').prop('disabled', true);
                 $('#boto41').prop('disabled', true);
-                 var text = "Espero que com a mínim aquesta historieta t'hagi transmès alguna emoció.";
+                 var text = "La noia esperava més (o no) d'una nit que va acabar sense deixar petjada.";
                 $('#p4').text(text);
                 $('#text4').toggle('slow', function() {
                 // Animation complete.
@@ -251,12 +254,42 @@
         });
         $(document).on('click', '#boto51', function (event) {
             event.preventDefault();
-            $('#boto51').prop('disabled', true);
-            var text = $('#inputEnquesta').val();
-            $( '#i5' ).val(text);
-            $('#text5').toggle('slow', function() {
+            if($("#boto52").prop("disabled") == false){
+                $( '#i5' ).val("NO");
+                $('#boto52').prop('disabled', true);
+                $('#boto53').prop('disabled', true);
+                var text = "Doncs a esperar al 2018, que nomes falten uns 360 dies. Ni tan mal!";
+                $('#p5').text(text);
+                $('#text5').toggle('slow', function() {
+                 
+              });
+            }
+        });
+        $(document).on('click', '#boto52', function (event) {
+            event.preventDefault();
+            if($("#boto51").prop("disabled") == false){
+                $( '#i5' ).val("CAFE");
+                $('#boto51').prop('disabled', true);
+                $('#boto53').prop('disabled', true);
+                var text = "Definitivament la nit de cap d'any té poders sobrenaturals.";
+                $('#p5').text(text);
+                $('#text4').toggle('slow', function() {
                 // Animation complete.
-            });
+              });
+            }
+        });
+        $(document).on('click', '#boto53', function (event) {
+            event.preventDefault();
+            if($("#boto53").prop("disabled") == false){
+                $( '#i5' ).val("PARLAR");
+                $('#boto52').prop('disabled', true);
+                $('#boto51').prop('disabled', true);
+                 var text = "La noia esperava més (o no) d'una nit que va acabar sense deixar petjada.";
+                $('#p5').text(text);
+                $('#text5').toggle('slow', function() {
+                // Animation complete.
+              });
+            }
         });
     </script>
   </body>
