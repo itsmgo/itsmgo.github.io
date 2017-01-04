@@ -9,16 +9,16 @@
     <meta name="author" content="">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Blog</title>
+    <title>Presentacio</title>
       
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../html/marti-blog.css" rel="stylesheet">
+    <link href="aina.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="negre">
 
     <div class="blog-header">
       <div class="container">
@@ -27,9 +27,9 @@
       </div> 
     </div>
     
-    <div class="container">
+    <div class="container blog-main">
       <div class="row">
-        <div class="col-sm-8 blog-main">
+        <div class="col-sm-8">
           <div class="marti-base">
             <!--<h1 class="blog-post-title">New project: Contibuting to create maps with 3D elements!</h1>
             <p class="blog-post-meta">October 17, 2016 by <a href="about.html">Martí</a></p>-->
@@ -39,26 +39,35 @@
             <hr>
             <h3> Per què patia? </h3>
             <hr>
+              <!--
             <div class="btn-group" data-toggle="buttons">
-              <label class="btn btn-primary" id="boto1">
-                <input type="radio" name="options" autocomplete="off"> Per acabar-se el <br> raïm a temps
+              <label class="btn btn-outline-primary" id="boto1">
+                <input type="radio" id="options1" autocomplete="off"> Per acabar-se el <br> raïm a temps
               </label>
-              <label class="btn btn-primary" id="boto2" >
-                <input type="radio" name="options" autocomplete="off"> Per ser la primera a felicitar l'any <br> nou al novio pel WhatsApp
+              <label class="btn btn-outline-primary" id="boto2" >
+                <input type="radio" id="options2" autocomplete="off"> Per ser la primera a felicitar l'any <br> nou al novio pel WhatsApp
               </label>
-              <label class="btn btn-primary" id="boto3" >
+              <label class="btn btn-outline-primary" id="boto3" >
                 <input type="radio" name="options" autocomplete="off"> Per com aniria el 2017, <br> començant per aquella mateixa nit
               </label>
+            </div>-->
+            <div class="block" role="group">
+              <button type="button" class="btn btn-secondary gris block" id="boto1" style="margin-bottom=.2rem;">Per acabar-se el <br> raïm a temps</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto2" style="margin-bottom=.2rem;">Per ser la primera a felicitar l'any <br> nou al novio pel WhatsApp</button> <br>
+              <button type="button" class="btn btn-secondary gris block" id="boto3">Per com aniria el 2017, <br> començant per aquella mateixa nit</button> <br>
             </div>
           </div><!-- /.blog-post -->
         <hr>
           <div class="marti-base" style="display:none;" id="text1">
+            <br>
             <p>En efecte, la visita al lavabo s'havia allargat inesperadament i ara es trobava corrents cap al menjador. El raïm sempre havia estat un rival dur i no pensava deixar-se vencer un altre any, després de la humiliant derrota de 2016, on el raïm va aconseguir sortir disparat cap enfora quan només faltaven 2 campanades.</p>
           </div><!-- /.blog-main -->
           <div class="marti-base" style="display:none;" id="text2">
+            <br>
             <p>Ben entrats en l'era de la informació, sempre s'ha d'estar pendent de la tecnologia i la immediatesa de les coses. També ho feia perquè ultimament les coses no anaven gaire bé entre ells dos i un missatge a les 00:00 sempre arregla les coses... o no.</p>
           </div><!-- /.blog-main -->
           <div class="marti-base" style="display:none;" id="text3">
+            <br>
             <p>El 2016 no havia estat del tot fructífer i tenia molts projectes i esperances dipositades en el 2017. Sí, definitivament el 2017 seria l'any que ho canviaria TOT, aquella festa al bosc nomeés seria l'inici.</p>
           </div><!-- /.blog-main -->
         </div>
@@ -76,20 +85,35 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../js/ie10-viewport-bug-workaround.js"></script>
     <script>
-        $(document).on('change', '#boto1', function (event) {
-            $('#text1').toggle('slow', function() {
-            // Animation complete.
-          });
+        $(document).on('click', '#boto1', function (event) {
+            event.preventDefault();
+            if($("#boto2").prop("disabled") == false){
+                $('#boto2').prop('disabled', true);
+                $('#boto3').prop('disabled', true);
+                $('#text1').toggle('slow', function() {
+                // Animation complete.
+              });
+            }
         });
-        $(document).on('change', '#boto2', function (event) {
-            $('#text2').toggle('slow', function() {
-            // Animation complete.
-          });
+        $(document).on('click', '#boto2', function (event) {
+            event.preventDefault();
+            if($("#boto1").prop("disabled") == false){
+                $('#boto1').prop('disabled', true);
+                $('#boto3').prop('disabled', true);
+                $('#text2').toggle('slow', function() {
+                // Animation complete.
+              });
+            }
         });
-        $(document).on('change', '#boto3', function (event) {
-            $('#text3').toggle('slow', function() {
-            // Animation complete.
-          });
+        $(document).on('click', '#boto3', function (event) {
+            event.preventDefault();
+            if($("#boto3").prop("disabled") == false){
+                $('#boto2').prop('disabled', true);
+                $('#boto1').prop('disabled', true);
+                $('#text3').toggle('slow', function() {
+                // Animation complete.
+              });
+            }
         });
     </script>
   </body>
