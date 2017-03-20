@@ -46,7 +46,55 @@
             </ul>
             </div>
         </nav>
-
+        
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text">The Game of Life <span class="label label-success">Completed</span></h1>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
+                    <br>
+                    The famous John Conway's <em>game of life</em> is a cellular simulation that occurs in a 2D grid. Each cell of the grid can be either dead or alive. Given certain living conditions, the grid evolves through time. Those conditions depend on the cell's neighbours and they are the following:<br><br>
+                    
+                    <ul>
+                        <li>A cell dies when:</li> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        <ol>
+                            <li> There are 4 or more neighbours alive. The cell dies of overpopulation</li>
+                            <li> There are 1 or less neightbours alive. The cell dies of isolation</li>
+                        </ol>
+                        <li>
+                            A cell comes to life when it has 3 neightbours alive
+                        </li>
+                        <li>
+                            A cell remains dead/alive when it has 2 neighbours alive
+                        </li>
+                    </ul>
+                    
+                    <hr>
+                    
+                    I coded The Game of Life in Python and made an application using the GTK3+ library. I also made a visual representation using <em>matplotlib</em> library. Here you can browse the code:
+                    <br>
+                    <br>
+                    <div class="card-well">
+                        <iframe src="http://nbviewer.jupyter.org/github/itsmgo/itsmgo.github.io/tree/master/data/code/GameOfLife.ipynb" width="100%" height="600px" frameborder=0>Not supported in your browser</iframe>
+                    </div>
+                    <br>
+                    And here you can download the Python app. You can pass 4 arguments to the program, X size, Y size, fife factor (between 0 and 1), and simulation velocity (miliseconds to refresh each frame).
+                    Example to run the program from terminal:
+                    <br>
+                    <br>
+                    <div class="card-well margeDret">
+                        cd /path/to/file/directory <br>
+                        python gameoflife.py 25 25 0.5 150
+                    </div>
+                    <br>
+                    Download link:
+                    <a href="../data/code/gameoflife.py">GameOfLife.py</a>
+                    
+                </div>
+            </div>
+            
+        </div>
 
         <div class="container">
             <div class="card">

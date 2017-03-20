@@ -55,6 +55,110 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
+                    <h1 class="text">Rigidbody collision: The Disk case <span class="label label-default">In progress</span></h1>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
+                    <br>
+                    
+                    <p>
+                        I created a box with a ball in it. I gave this ball an initial velocity and coded a basic collision against the walls. The velocity component perpendicular to the wall flips its direction as you can see in the images below:
+                        <br>
+                        <br>
+                        <img class="img-thumbnail img-responsive" src="../imatges/physics/precolisio.png"> <img class="img-thumbnail img-responsive" src="../imatges/physics/postcolisio.png">
+                        <br>
+                        <em>Ball and its velocity before (left) and after (right) a wall collision.</em>
+                        <br>
+                        <br>
+                        Once the wall collision was implemented, I added an additional ball to the box and I started to think how to solve the two disk collision problem.
+                    </p>
+                    <h3>Defining the problem</h3>
+                    <p>
+                        Given the radius, position and velocity of two balls just before the collision, find the resulting velocities of both bodies.
+                    </p>
+                    <h3>Solution: Treat it like a wall collision</h3>
+                    <p>
+                        The first idea that came to my mind was to treat the disk collision as if there was a wall tangent to both balls, as you can see in this figure:
+                        <br>
+                        <br>
+                        <img class="img-thumbnail img-responsive" src="../imatges/physics/2bolespre.png"> <img class="img-thumbnail img-responsive" src="../imatges/physics/2bolespost.png">
+                        <br>
+                        <em>Two balls and their velocities before (left) and after (right) a collision, with an imaginary wall between them.</em>
+                        <br>
+                        <br>
+                        Linear algebra gives us the tools to calculate the final velocities. First of all, we will make a <b>change of basis</b> from <em>screen basis</em> to <em>collision basis</em>, that basically consists of a 2D rotation. The rotation angle is given by the angle between the horizontal axis (X <em>screen basis</em> axis) and the vector that join both ball centers:
+                        <br>
+                        <br>
+                        <img class="img-thumbnail img-responsive" src="../imatges/physics/sistemacoords.png">
+                        <br>
+                        <em>Diferent system coordinates to calculate the velocity changes.</em>
+                        <br>
+                        <br>
+                        Next step consist of rewritting the initial velocity vectors in the <em>collision basis</em> using the change of basis matrix (2D rotation matrix). Once the velocity vectors are in the <em>collision basis</em>, a linear transformation is applied to them, similar to the "flip direction" transformation used in the wall collision.
+                        This type of transmormation is very easy to make is this vector space, and that's why I made the change of basis. Here you can check the diagram:
+                        <br>
+                        <br>
+                        <img class="img-thumbnail img-responsive" src="../imatges/physics/diagrama.png">
+                        <br>
+                        <em>Algebra diagram. S(v) is refered to vector v expressed in screen coordinates. C(v) is vector v in collision coordinates.</em>
+                        <br>
+                        <br>
+                        The final step is to revert the velocity vectors to the <em>screen basis</em> using the inverse change of basis matrix and we are good to go.
+                        Here is the code of the full transformation in Python:
+                        <br>
+                    <div class="card-well">
+                        <pre class="llarg">
+                        <code class="python llarg">
+import numpy as np
+
+def colTransformation(V1, V2, angle):
+
+    '''Function that recieves two initial velocities (V1, V2) and the angle between X screen axis and X colision axis
+    and returns the final velocities'''
+    
+    #Define the change of basis matrix and its inverse
+    M = np.array([[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]])
+    Mi = (1/np.linalg.det(M))*np.array([[np.cos(angle), np.sin(angle)], [-np.sin(angle) ,np.cos(angle)]])
+    
+    #Change of basis
+    V1colisionBasis = np.dot(M,V1)
+    V2colisionBasis = np.dot(M,V2)
+
+    #flip the velocity component perpendicular to the imaginary wall
+    V1colisionBasis[0] = -V1colisionBasis[0]
+    V2colisionBasis[0] = -V2colisionBasis[0]
+
+    #Revert the change of basis
+    V1 = np.dot(Mi,V1colisionBasis)
+    V2 = np.dot(Mi,V2colisionBasis)
+
+    return V1, V2       </code>
+                        </pre>
+                    </div>
+                    </p>
+                    <h3>Evlatuating the solution</h3>
+                    <p>
+                        After the python implementation, I test the proposed solution in various simulations with random initial velocities. The results were discouraging. <br>
+                        Although in some cases the collision was behaving quite as expected, the majority of interactions were unnatural and didn't make any physical sense. I checked my notes and I saw that this soution was not taking into account the momentum conservation. I could see it in the simulation when a high speed ball hit a low speed ball and they were not changing speeds but only directions. That's because of the idea to treat the collision as if there was a wall (infinite mass) when in the reality the mass of the other particle is the same as the colliding particle.
+                        This is the main error found in the proposed solution, but there are more errors caused by not taking into account diferent collision scenarios, like velocities with the same direction but diferent speed.
+                    </p>
+                    <h3>New solution: Momentum conservation</h3>
+                    <p>I'm working now in this solution, implementing it into python in order to check if the problem is properly solved.</p>
+                <hr>
+                    <p>
+                        Here you can see the code used to simulate the box with balls:
+                    </p>
+                    <div class="card-well">
+                        <iframe src="http://nbviewer.jupyter.org/github/itsmgo/itsmgo.github.io/tree/master/data/code/CollisionsWall.ipynb" width="100%" height="600px" frameborder=0>Not supported in your browser</iframe>
+                    </div>
+                    
+                
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
                     <h1 class="text">Schulze election method <span class="label label-success">Completed</span></h1>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-divider"></div>
