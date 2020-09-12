@@ -7,10 +7,20 @@ renders = ["../imatges/renders/spacethumb.png",
           "../imatges/physicsthumb.png",
           "../imatges/mascotathumb.png"]
 
+function preloadImages()
+{
+    loadedRenders = []
+    for(var i=0; i<renders.length; i++){
+        var im = new Image();
+        im.src = renders[i];
+        im.classList = "imatge";
+        loadedRenders.push(im)
+    }
+    
+}
+
 function createImage(number, key) {
-    var img = document.createElement("img");
-    img.src = renders[key[number]];
-    img.onclick = function(){window.open(this.src)};
+    var img = loadedRenders[key[number]];
     // This next line will just add it to the <body> tag
     document.getElementById("foo").appendChild(img);
     document.getElementById("foo").appendChild(document.createElement("br"));
@@ -19,18 +29,15 @@ function createImage(number, key) {
 function createButtons(matrix, candidates, vote, key) {
     var button1  = document.createElement("button");
     button1.innerHTML="VOTAR UP";
+    button1.classList = "boto";
     button1.onclick = function(){voting(matrix, candidates[0], candidates[1], vote, key)};
     document.getElementById("foo").appendChild(button1);
     
     var button2 = document.createElement("button");
     button2.innerHTML="VOTE DOWN";
+    button2.classList = "boto";
     button2.onclick = function(){voting(matrix, candidates[1], candidates[0], vote, key)};
     document.getElementById("foo").appendChild(button2);
-    
-    var button3 = document.createElement("button");
-    button3.innerHTML="SHOW UP";
-    button3.onclick = function(){alert(matrix)};
-    document.getElementById("foo").appendChild(button3);
 }
 
 function createMatrix(n) {
@@ -92,7 +99,7 @@ function check(t){
         while (myNode.firstChild) {
             myNode.removeChild(myNode.lastChild);
         }
-        main(0, [16,19,17,12,8,1,11,13])
+        main(0, [1,2,3,4,5,6,7,0]) //[16,19,17,12,8,1,11,13]
     }
 }
 
@@ -116,29 +123,35 @@ function generateCode(m, k){
 function copyText(){
   /* Get the text field */
 
-  var text = document.getElementById("a32")
-  /* Select the text field */
-  text.select();
-  text.setSelectionRange(0, 99999); /*For mobile devices*/
+    var text = document.getElementById("a32")
+    /* Select the text field */
+    text.select();
+    text.setSelectionRange(0, 99999); /*For mobile devices*/
 
   /* Copy the text inside the text field */
-  document.execCommand("copy");
+    document.execCommand("copy");
 
   /* Alert the copied text */
-  alert("Text copiat: " + text.value);
+    document.getElementById("foo").appendChild(document.createElement("br"));
+    document.getElementById("foo").append("Text copiat!");
+    
 } 
 
 
 function main(vote, key=0){
+    preloadImages();
     if(vote == -1){
         document.getElementById("foo").append("Entra la teva clau personal:");
+        document.getElementById("foo").appendChild(document.createElement("br"));
+        document.getElementById("foo").appendChild(document.createElement("br"));
         var x = document.createElement("INPUT");
         x.setAttribute("type", "text");
         var button  = document.createElement("button");
         button.innerHTML="Comprovar";
         button.onclick = function(){check(x.value)};
-        document.getElementById("foo").appendChild(button);
+        button.classList = "boto";
         document.getElementById("foo").appendChild(x)
+        document.getElementById("foo").appendChild(button);
     }
     else{
         if(vote == 0){
@@ -147,12 +160,20 @@ function main(vote, key=0){
         }
         if (vote < P.length){
             candidates = P[vote];
+            var pro = document.createElement("progress");
+            pro.max = P.length
+            pro.value = vote
+            pro.classList = "barra";
+            document.getElementById("foo").appendChild(pro);
             document.getElementById("foo").append(vote.toString()+"/"+P.length);
             document.getElementById("foo").appendChild(document.createElement("br"));
             loadContent(M, candidates, vote, key);
         }
         else{
-            document.getElementById("foo").append("Gracies per completar la classificació. Envia aquest codi al Marti perque pugui coneixer els teus resultats:");
+            document.getElementById("foo").append("Gracies per completar la classificació.");
+            document.getElementById("foo").appendChild(document.createElement("br"));
+            document.getElementById("foo").append("Envia aquest codi al Marti perque pugui coneixer els teus resultats:");
+            document.getElementById("foo").appendChild(document.createElement("br"));
             document.getElementById("foo").appendChild(document.createElement("br"));
             var text = document.createElement("input");
             text.id = "a32";
@@ -160,6 +181,7 @@ function main(vote, key=0){
             document.getElementById("foo").appendChild(text);
             var button  = document.createElement("button");
             button.innerHTML="Copiar codi";
+            button.classList = "boto";
             button.onclick = function(){copyText(text)};
             document.getElementById("foo").appendChild(button);
             
