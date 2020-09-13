@@ -1,0 +1,75 @@
+@font-face { font-family: myFont; src: url('KeepCalm-Medium.ttf'); } 
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: repeating-linear-gradient(45deg, #ddd, #ddd 30px, #dbdbdb 30px, #dbdbdb 60px);
+    align-content: center;
+    font-family: myFont;
+    font-size: 26px;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+}
+
+.centre{
+    align-content: center;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.boto{
+    filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.15));
+    margin: 8px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 4px;
+    border: 0;
+    border-width:thin;
+    font-size: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+
+.botoGran{
+    filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.15));
+    margin: 8px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 4px;
+    border: 0;
+    border-width:thin;
+    font-size: 35px;
+    margin-right: 80px;
+    margin-left: 80px;
+}
+
+
+.inputText{
+    filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.15));
+    margin: 8px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 4px;
+    border: 0;
+    border-width:thin;
+    font-size: 20px;
+}
+
+
+.imatge{
+    filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.15));
+    max-width: 100%;
+    max-height: 100vh;
+    margin: 10px;
+}
+
+.barra{
+    filter: drop-shadow(0px 2px 0px rgba(0, 0, 0, 0.15));
+    padding: 6px;
+    font-size: 30px;
+    margin: 10px;
+}
