@@ -17,29 +17,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet"> 
 
     <script>
-      
+      renders = ["../imatges/renders/HD/1_Tanatori.jpg",
+            "../imatges/renders/HD/2_Tennis.jpg",
+            "../imatges/renders/HD/3_Nocturn.jpg",
+            "../imatges/renders/HD/4_Paret.jpg",
+            "../imatges/renders/HD/5_Planta.jpg",
+            "../imatges/renders/HD/6_Public.jpg",
+            "../imatges/renders/HD/7_Mediterrani.jpg",
+            "../imatges/renders/HD/8_Supermercat.jpg",
+            "../imatges/renders/HD/9_Production.jpg",
+            "../imatges/renders/HD/10_Nordic.jpg",
+            "../imatges/renders/HD/11_Platja.jpg",
+            "../imatges/renders/HD/12_Wireframe.jpg",
+            "../imatges/renders/HD/13_Orange.jpg",
+            "../imatges/renders/HD/14_Nadal.jpg",
+            "../imatges/renders/HD/15_City.jpg",
+            "../imatges/renders/HD/16_Casc.jpg",
+            "../imatges/renders/HD/17_Abstract.jpg",
+            "../imatges/renders/HD/18_Parquing.jpg",
+            "../imatges/renders/HD/19_Concessionari.jpg",
+            "../imatges/renders/HD/20_Citric.jpg"]
+
+      function preloadImages()
+      {
+          loadedRenders = []
+          for(var i=0; i<renders.length; i++){
+              var im = new Image();
+              im.src = renders[i];
+              loadedRenders.push(im)
+          } 
+      }
+
+      function toggleVisibility(element) {
+        for (i = 1; i < 7; i++){
+          var x = document.getElementById("PLAYER".concat(i.toString()));
+          var y = document.getElementById("THUMB".concat(i.toString()));
+          if(i == element){
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.children[0].style.opacity = "0.3";
+            } else {
+                x.style.display = "none";
+                y.children[0].style.opacity = "1";
+            }
+          }
+          else {
+            x.style.display = "none";
+            y.children[0].style.opacity = "1";
+          }
+        }
+        
+      }
+
+      preloadImages();
     </script>
 
 </head>
 <body>
 <div class="container gallery-container">
-  <p class="header-text text-center"> LAYOUT   ·   MODELING   ·   SHADING   ·   ANIMATION   ·   LIGHTNING   ·   COMPOSITING </p>
-
-  <h1 style="margin-bottom: 30px;">MARTI GIMENO PORTFOLIO</h1>
+  <p class="header-text text-center" style="margin-top: -15px;margin-bottom: 40px;"> LAYOUT   ·   MODELING   ·   SHADING   ·   ANIMATION   ·   LIGHTNING   ·   COMPOSITING </p>
+  <h3 class="text-center" style="font-family: 'Raleway', sans-serif; color: #777; font-size: 25px;margin-bottom: 5px;"> MARTI GIMENO ORTI </h3>
+  <h1 style="margin-bottom: 30px; margin-top: 5px;">PORTFOLIO</h1>
+  
 
   <div class="video-split">
     <div style="margin-left: 15%; margin-right: 15%;">
       <div style="max-width: 1348px; margin: auto;">
         <div class="embed-responsive embed-responsive-16by9" style="border-radius: 5px; margin: auto;">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/u3WYM-5YylE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="margin:0 auto;"></iframe>
+          <video class="embed-responsive-item" controls>
+            <source src="../imatges/SUPERNOVA_TEASER_vDef.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video> 
         </div>
       </div>
     </div>
   </div>
-<p class="header-text text-center", style="font-size: 17px;"> 2020 REEL </p>
 </div>
 
 <div>
+  <br>
+  <br>
   <br>
   <br>
   <br>
@@ -47,12 +104,65 @@
 
 <div class="container gallery-container-2">
   <h1 style="margin-bottom:20px;" class="text-center">ANIMATIONS</h1>
-      <div class="embed-responsive embed-responsive-16by9" style="border-radius: 5px; margin-bottom: 5px;">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MGyEZI5Sl8I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="margin:0 auto;"></iframe>
+  <div class="tz-gallery">
+
+    <div class="row">
+
+        <div class="col-sm-2 col-md-2">
+            <a id="THUMB1" class="lightbox" onclick="toggleVisibility(1, this)">
+              <img src="../imatges/1_super.jpg">
+            </a>
+        </div>
+        <div class="col-sm-2 col-md-2">
+          <a id="THUMB2" class="lightbox" onclick="toggleVisibility(2, this)">
+            <img src="../imatges/2_casc.jpg">
+          </a>
+        </div>
+        <div class="col-sm-2 col-md-2">
+            <a id="THUMB3" class="lightbox" onclick="toggleVisibility(3, this)">
+              <img src="../imatges/3_bf.jpg">
+            </a>
+        </div>
+        <div class="col-sm-2 col-md-2">
+          <a id="THUMB4" class="lightbox" onclick="toggleVisibility(4, this)">
+            <img src="../imatges/4_matilda.jpg">
+          </a>
+        </div>
+        <div class="col-sm-2 col-md-2">
+          <a id="THUMB5" class="lightbox" onclick="toggleVisibility(5, this)">
+            <img src="../imatges/5_june.jpg">
+          </a>
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <a id="THUMB6" class="lightbox" onclick="toggleVisibility(6, this)">
+          <img src="../imatges/6_train.jpg">
+        </a>
+      </div>
+    </div>
+  </div>
+      <div id="PLAYER1" class="embed-responsive embed-responsive-16by9" style="border-radius: 5px; margin-top: -12px; display: none;">
+        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/538462686" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Supernova Teaser 2020"></iframe>
+      </div>
+      <div id="PLAYER2" class="embed-responsive embed-responsive-16by9" style="border-radius: 5px; margin-top: -12px; display: none;">
+        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/538463767" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="EVO21 Teaser"></iframe>
+      </div>
+      <div id="PLAYER3" class="embed-responsive embed-responsive-16by9" style="border-radius: 5px; margin-top: -12px; display: none;">
+        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/538466906" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Black Friday 2020 Promo"></iframe>
+      </div>
+      <div id="PLAYER4" class="embed-responsive embed-responsive-16by9" style="border-radius: 5px; margin-top: -12px; display: none;">
+        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/538470231" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="margin:0 auto;"></iframe>
+      </div>
+      <div id="PLAYER5" class="embed-responsive embed-responsive-16by9" style="border-radius: 5px; margin-top: -12px; display: none;">
+        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/538469645" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Black Friday 2020 Promo"></iframe>
+      </div>
+      <div id="PLAYER6" class="embed-responsive embed-responsive-16by9" style="border-radius: 5px; margin-top: -12px; display: none;">
+        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/538468994" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="margin:0 auto;"></iframe>
       </div>
 </div>
 
 <div>
+  <br>
+  <br>
   <br>
   <br>
   <br>
@@ -65,83 +175,98 @@
         <div class="row">
 
             <div class="col-sm-12 col-md-4">
-                <a class="lightbox" href="../imatges/renders/11_Platja.png">
+                <a class="lightbox" href="../imatges/renders/HD/11_Platja.jpg">
                   <img src="../imatges/renders/11_Platja.jpg">
                 </a>
             </div>
             <div class="col-sm-6 col-md-4">
-              <a class="lightbox" href="../imatges/renders/9_Production.png">
+              <a class="lightbox" href="../imatges/renders/HD/9_Production.jpg">
                 <img src="../imatges/renders/9_Production.jpg">
               </a>
             </div>
             <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/1_Tanatori.png">
-                  <img src="../imatges/renders/1_Tanatori.jpg">
+              <a class="lightbox" href="../imatges/renders/25_Eyes.png">
+                <img src="../imatges/renders/25_Eyes.jpg">
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="../imatges/renders/27_Monster.png">
+                  <img src="../imatges/renders/27_Monster.jpg">
                 </a>
             </div>
             <div class="col-sm-12 col-md-8">
-                <a class="lightbox" href="../imatges/renders/18_Parquing.png">
+                <a class="lightbox" href="../imatges/renders/HD/18_Parquing.jpg">
                   <img src="../imatges/renders/18_Parquing.jpg">
                 </a>
             </div>
             <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/2_Tennis.png">
+              <a class="lightbox" href="../imatges/renders/26_Head.png">
+                <img src="../imatges/renders/26_Head.jpg">
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="../imatges/renders/HD/2_Tennis.jpg">
                   <img src="../imatges/renders/2_Tennis.jpg">
                 </a>
             </div> 
-            <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/4_Paret.png">
-                  <img src="../imatges/renders/4_Paret.jpg">
-                </a>
-            </div>
-
             <div class="col-sm-12 col-md-8">
               <a class="lightbox" href="../imatges/renders/20_Citric.jpg">
                 <img src="../imatges/renders/20_Citric_thumb.jpg">
               </a>
             </div>
             <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/8_Supermercat.png">
+                <a class="lightbox" href="../imatges/renders/HD/4_Paret.jpg">
+                  <img src="../imatges/renders/4_Paret.jpg">
+                </a>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="../imatges/renders/HD/8_Supermercat.jpg">
                   <img src="../imatges/renders/8_Supermercat.jpg">
                 </a>
             </div> 
             <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/17_Abstract.png">
-                  <img src="../imatges/renders/17_Abstract.jpg">
-                </a>
+              <a class="lightbox" href="../imatges/renders/28_Monster.png">
+                <img src="../imatges/renders/28_Monster.jpg">
+              </a>
             </div>
             <div class="col-sm-12 col-md-8">
-              <a class="lightbox" href="../imatges/renders/3_Nocturn.png">
+              <a class="lightbox" href="../imatges/renders/HD/3_Nocturn.jpg">
                 <img src="../imatges/renders/3_Nocturn.jpg">
               </a>
             </div>
             <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/6_Public.png">
+                <a class="lightbox" href="../imatges/renders/HD/17_Abstract.jpg">
+                  <img src="../imatges/renders/17_Abstract.jpg">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="../imatges/renders/HD/6_Public.jpg">
                   <img src="../imatges/renders/6_Public.jpg">
                 </a>
             </div> 
-            <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/7_Mediterrani.png">
-                  <img src="../imatges/renders/7_Mediterrani.jpg">
-                </a>
-            </div>
             <div class="col-sm-12 col-md-8">
-              <a class="lightbox" href="../imatges/renders/21_Discount.png">
+              <a class="lightbox" href="../imatges/renders/HD/21_Discount.jpg">
                 <img src="../imatges/renders/21_Discount.jpg">
               </a>
             </div>
             <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/12_Wireframe.png">
+                <a class="lightbox" href="../imatges/renders/HD/7_Mediterrani.jpg">
+                  <img src="../imatges/renders/7_Mediterrani.jpg">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="../imatges/renders/HD/12_Wireframe.jpg">
                   <img src="../imatges/renders/12_Wireframe.jpg">
                 </a>
             </div> 
             <div class="col-sm-6 col-md-4">
-                <a class="lightbox" href="../imatges/renders/24_Arcs.png">
+                <a class="lightbox" href="../imatges/renders/HD/24_Arcs.jpg">
                   <img src="../imatges/renders/24_Arcs.jpg">
                 </a>
             </div>
             <div class="col-sm-6 col-md-4">
-              <a class="lightbox" href="../imatges/renders/5_Planta.png">
+              <a class="lightbox" href="../imatges/renders/HD/5_Planta.jpg">
                 <img src="../imatges/renders/5_Planta.jpg">
               </a>
           </div> 
@@ -150,24 +275,19 @@
                 <img src="../imatges/renders/19_Concessionari_thumb.jpg">
               </a>
           </div>
-          <div class="col-sm-6 col-md-4">
-            <a class="lightbox" href="../imatges/renders/22_Carpaint.png">
-              <img src="../imatges/renders/22_Carpaint.jpg">
-            </a>
-          </div>
           <div class="col-sm-12 col-md-8">
-            <a class="lightbox" href="../imatges/renders/10_Nordic.png">
-              <img src="../imatges/renders/10_Nordic.jpg">
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <a class="lightbox" href="../imatges/renders/23_Night.png">
+            <a class="lightbox" href="../imatges/renders/HD/23_Night.jpg">
               <img src="../imatges/renders/23_Night.jpg">
             </a>
           </div>
           <div class="col-sm-6 col-md-4">
-            <a class="lightbox" href="../imatges/renders/13_Orange.png">
-              <img src="../imatges/renders/13_Orange.jpg">
+            <a class="lightbox" href="../imatges/renders/HD/22_Carpaint.jpg">
+              <img src="../imatges/renders/22_Carpaint.jpg">
+            </a>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <a class="lightbox" href="../imatges/renders/HD/10_Nordic.jpg">
+              <img src="../imatges/renders/10_Nordic.jpg">
             </a>
           </div>
         </div>
@@ -175,7 +295,7 @@
  
 </div>
 <div class="container gallery-container">
-<p class="page-description text-center">All content is created by Martí Gimeno using Blender.</p>
+<p class="page-description text-center" style="font-family: 'Raleway', sans-serif;">All content is created by Martí Gimeno using Blender.</p>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 <script>

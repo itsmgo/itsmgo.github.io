@@ -27,8 +27,7 @@ function preloadImages()
         im.src = renders[i];
         im.classList = "imatge";
         loadedRenders.push(im)
-    }
-    
+    } 
 }
 
 function createImage(number, key) {
