@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<div class="container">
+    <br>
+    <p class="text small"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    <div class="segments segment-1">
+        <h2 class="text absolute " id="t1"> Reality is complex. </h2>
+                
+    </div>
+    <div class="segments segment-2">
+        <h2 class="text absolute white" id="t2"> Abstract from it using data...  </h2>
+    </div>
+    <div class="segments segment-3" >
+        <h2 class="text absolute white" id="t3"> ... and analyse it to get insights.</h2>
+    </div>
+</div>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;900&display=swap");
+
+:root {
+    --base: #ffcd00;
+    --black: #242424;
+    --primary: #329d52;
+    --steps: 0;
+    --width: 0;
+}
+
+body {
+    background: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    color: var(--black);
+    overflow-x: hidden;
+}
+.container {
+        max-width: 100% !important;
+        width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.segments {
+    background-attachment: fixed;
+    width: 100%;
+    height: 150vh;
+    background-size:     auto 70vh;             
+    background-repeat:   no-repeat;
+    background-position: right center; 
+}
+.segment-1 {
+    margin: auto;
+    background-image: url(../imatges/valerdat/6.jpg);
+    background-color: #dbdcde;
+}
+.segment-2 {
+    margin: auto;
+    background-image: url(../imatges/valerdat/7.jpg);
+        background-color: #20252a;
+}
+.segment-3 {
+    margin: auto;
+    background-image: url(../imatges/valerdat/8.jpg);
+        background-color: #838b8e;
+}
+
+.text {
+    padding: 15vw;
+    padding-top: 0px;
+    text-align: left;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 0px;
+}
+
+.white {
+        color: #eeeeee;
+}
+
+.right {
+        text-align: right;
+}
+
+.absolute {
+        position: fixed;
+        opacity: 0;
+        top: 100px;
+}
+
+.small{
+        translate: 0 0;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 36px;
+}
+</style>
+
+<script>
+const offset = 150;
+const minHeight = 640;
+const segmentHeightFactor = 1.5;
+var segment1 = document.querySelector('#t1');
+var segment2 = document.querySelector('#t2');
+var segment3 = document.querySelector('#t3');
+
+function getSegmentScrollPercentage(scroll, vh, segmentNumber){
+    let segmentHeight = segmentHeightFactor*vh
+    scroll = offset + scroll - (minHeight + (segmentNumber-1)*segmentHeight)
+    if (scroll < 0){
+        return 0
+    }
+    if (scroll < segmentHeight){
+        return scroll/segmentHeight
+    }
+    return 1
+}
+
+function getOpacityLevel(x){
+    if (x == 0){
+        return 0
+    }
+    if (x < 0.2){
+        return 5*x
+    }
+    if (x < 0.4){
+        return 1
+    }
+    return 1-1.6666*(x-0.4)
+}
+
+window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    let height = this.innerHeight;
+    let o1 = getOpacityLevel(getSegmentScrollPercentage(scroll, height, 1));
+    let o2 = getOpacityLevel(getSegmentScrollPercentage(scroll, height, 2));
+    let o3 = getOpacityLevel(getSegmentScrollPercentage(scroll, height, 3));
+    segment1.style.opacity = o1;
+    segment2.style.opacity = o2;
+    segment3.style.opacity = o3;
+
+});
+</script>
