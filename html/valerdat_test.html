@@ -23,6 +23,7 @@
         font-family: "Montserrat", sans-serif;
         color: var(--black);
         overflow-x: hidden;
+        margin: 0px;
       }
       .container {
         max-width: 100% !important;
@@ -124,6 +125,9 @@
       }
 
       window.addEventListener("scroll", (event) => {
+        var segment1 = document.querySelector("#t1");
+        var segment2 = document.querySelector("#t2");
+        var segment3 = document.querySelector("#t3");
         let scroll = this.scrollY;
         let height = this.innerHeight;
         let o1 = getOpacityLevel(getSegmentScrollPercentage(scroll, height, 1));
