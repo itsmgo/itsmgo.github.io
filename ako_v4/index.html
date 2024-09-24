@@ -48,12 +48,11 @@ body {
 }
 
 #status-splash {
-	max-height: 100%;
-	max-width: 100%;
-	height: auto;
-	width:auto;
-	margin: auto;
-	background-color: white;
+	height: 100%;
+	width: 100%;
+	background-image: url("./ako_bg.png");
+	background-position: center;
+	background-size: cover;
 }
 
 #status-progress, #status-notice {
@@ -120,7 +119,7 @@ body {
 		</noscript>
 
 		<div id="status">
-			<img id="status-splash" src="ako_bg.png" alt="">
+			<div id="status-splash" />
 			<progress id="status-progress"></progress>
 			<span class="loader"></span>
 			<div id="status-notice"></div>

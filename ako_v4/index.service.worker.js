@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1727077143|4712758487';
+const CACHE_VERSION = '1727174686|3587883228';
 /** @type {string} */
 const CACHE_PREFIX = 'AKO Sinòptic-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

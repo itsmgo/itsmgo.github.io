@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[660],{1239:function(n,_,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/MainMap",function(){return u(4836)}])}},function(n){n.O(0,[675,836,888,774,179],function(){return n(n.s=1239)}),_N_E=n.O()}]);
